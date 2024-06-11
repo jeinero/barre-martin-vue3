@@ -8,7 +8,7 @@ export const useMonsterStore = defineStore("monsterStore", {
       monsters: [],
       monster: null,
       currentPage: 1,
-      pageSize: 5,
+      pageSize: 5, // Number of monsters per page
     }),
   actions: {
     async fetchMonsters() {

@@ -1,5 +1,10 @@
 <template>
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-5" v-if="isLoading">
+        <div class="container">
+            <p>Loading...</p>
+        </div>
+    </div>
+    <div class="container-fluid py-5" v-else>
         <div class="container">
             <div class="row gx-5">
                 <div class="col-lg-5 mb-5 mb-lg-0" style="min-height: 500px">
@@ -37,7 +42,7 @@
 
 <script>
 import { useMonsterStore } from "../stores/index.js";
-import { onMounted, computed } from "vue";
+import { onMounted, ref, computed } from "vue";
 import { useRoute } from "vue-router";
 
 export default {
@@ -45,15 +50,18 @@ export default {
     setup() {
         const store = useMonsterStore();
         const route = useRoute();
+        const isLoading = ref(true);
 
-        onMounted(() => {
-            store.fetchMonster(route.params.id);
+        onMounted(async () => {
+            await store.fetchMonster(route.params.id);
+            isLoading.value = false;
         });
 
         const monster = computed(() => store.monster);
 
         return {
             monster,
+            isLoading,
         };
     },
 };

@@ -1,10 +1,10 @@
 <template>
-    <div class="container-fluid py-5" v-if="isLoading">
+    <div v-if="isLoading" class="container-fluid py-5">
         <div class="container">
             <p>Loading...</p>
         </div>
     </div>
-    <div class="container-fluid py-5" v-else>
+    <div v-else class="container-fluid py-5">
         <div class="container">
             <div class="row gx-5">
                 <div class="col-lg-5 mb-5 mb-lg-0" style="min-height: 500px">
@@ -25,14 +25,17 @@
                             {{ monster.name }}
                         </h1>
                     </div>
-                    <h4 class="text-body mb-4">{{ monster.description }}</h4>
+                    <h4 class="text-body mb-4">
+                        {{ monster.description || "No description available" }}
+                    </h4>
                     <div class="border-start border-5 border-primary ps-5 mb-5">
                         <h6 class="text-primary text-uppercase">DROPS</h6>
-                        <ul>
+                        <ul v-if="monster.drops">
                             <li v-for="drop in monster.drops" :key="drop">
                                 {{ drop }}
                             </li>
                         </ul>
+                        <p v-else>No drops available</p>
                     </div>
                 </div>
             </div>

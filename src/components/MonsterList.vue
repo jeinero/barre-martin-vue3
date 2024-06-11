@@ -11,10 +11,10 @@
                     <h5
                         class="text-uppercase border-start border-5 border-primary ps-3 mb-4"
                     >
-                        Page 1
+                        Page {{ currentPage }}
                     </h5>
                     <div
-                        v-for="monster in monsters"
+                        v-for="monster in paginatedMonsters"
                         :key="monster._id"
                         class="d-flex overflow-hidden mb-3 bg-light"
                     >
@@ -38,10 +38,20 @@
                         >
                     </div>
                 </div>
-                <button type="button" class="btn btn-outline-success">
+                <button
+                    type="button"
+                    class="btn btn-outline-success me-2"
+                    @click="prevPage"
+                    :disabled="currentPage === 1"
+                >
                     Prev
                 </button>
-                <button type="button" class="btn btn-outline-success">
+                <button
+                    type="button"
+                    class="btn btn-outline-success"
+                    @click="nextPage"
+                    :disabled="currentPage === totalPages"
+                >
                     Next
                 </button>
             </div>
@@ -62,10 +72,28 @@ export default {
             store.fetchMonsters();
         });
 
-        const monsters = computed(() => store.monsters);
+        const paginatedMonsters = computed(() => store.paginatedMonsters);
+        const currentPage = computed(() => store.currentPage);
+        const totalPages = computed(() => store.totalPages);
+
+        const nextPage = () => {
+            if (store.currentPage < store.totalPages) {
+                store.currentPage++;
+            }
+        };
+
+        const prevPage = () => {
+            if (store.currentPage > 1) {
+                store.currentPage--;
+            }
+        };
 
         return {
-            monsters,
+            paginatedMonsters,
+            currentPage,
+            totalPages,
+            nextPage,
+            prevPage,
         };
     },
 };

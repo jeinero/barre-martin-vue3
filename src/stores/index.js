@@ -7,6 +7,8 @@ export const useMonsterStore = defineStore("monsterStore", {
     reactive({
       monsters: [],
       monster: null,
+      currentPage: 1,
+      pageSize: 5,
     }),
   actions: {
     async fetchMonsters() {
@@ -14,7 +16,6 @@ export const useMonsterStore = defineStore("monsterStore", {
         const response = await axios.get(
           "https://metallo.ew.r.appspot.com/monsters",
         );
-        console.log(response.data);
         this.monsters = response.data;
       } catch (error) {
         console.error("Error fetching monsters:", error);
@@ -25,11 +26,20 @@ export const useMonsterStore = defineStore("monsterStore", {
         const response = await axios.get(
           `https://metallo.ew.r.appspot.com/monsters/${id}`,
         );
-        console.log(response.data);
         this.monster = response.data;
       } catch (error) {
         console.error("Error fetching monster:", error);
       }
+    },
+  },
+  getters: {
+    paginatedMonsters(state) {
+      const start = (state.currentPage - 1) * state.pageSize;
+      const end = start + state.pageSize;
+      return state.monsters.slice(start, end);
+    },
+    totalPages(state) {
+      return Math.ceil(state.monsters.length / state.pageSize);
     },
   },
 });

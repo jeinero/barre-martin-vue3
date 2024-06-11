@@ -61,62 +61,60 @@
                         <div class="bg-light p-4">
                             <ul
                                 class="nav nav-pills justify-content-between mb-3"
-                                id="pills-tab"
-                                role="tablist"
+                                id="“pills-tab”"
+                                role="“tablist”"
                             >
-                                <li class="nav-item w-50" role="presentation">
-                                    <button
-                                        class="nav-link text-uppercase w-100 active"
-                                        id="pills-1-tab"
-                                        data-bs-toggle="pill"
-                                        data-bs-target="#pills-1"
-                                        type="button"
-                                        role="tab"
-                                        aria-controls="pills-1"
-                                        aria-selected="true"
-                                    >
-                                        Our Mission
-                                    </button>
-                                </li>
-                            </ul>
-                            <div class="tab-content" id="pills-tabContent">
+                                Our Mission Tempor erat elitr at rebum at at
+                                clita aliquyam consetetur. Diam dolor diam ipsum
+                                et, tempor voluptua sit consetetur sit. Aliquyam
+                                diam amet diam et eos sadipscing labore. Clita
+                                erat ipsum et lorem et sit, sed stet no labore
+                                lorem sit. Sanctus clita duo justo et tempor
+                                consetetur takimata eirmod, dolores takimata
+                                consetetur invidunt magna dolores aliquyam
+                                dolores dolore. Amet erat amet et magna
+                                <!-- Footer Start -->
                                 <div
-                                    class="tab-pane fade show active"
-                                    id="pills-1"
-                                    role="tabpanel"
-                                    aria-labelledby="pills-1-tab"
+                                    class="container-fluid bg-dark text-white-50 py-4"
                                 >
-                                    <p class="mb-0">
-                                        Tempor erat elitr at rebum at at clita
-                                        aliquyam consetetur. Diam dolor diam
-                                        ipsum et, tempor voluptua sit consetetur
-                                        sit. Aliquyam diam amet diam et eos
-                                        sadipscing labore. Clita erat ipsum et
-                                        lorem et sit, sed stet no labore lorem
-                                        sit. Sanctus clita duo justo et tempor
-                                        consetetur takimata eirmod, dolores
-                                        takimata consetetur invidunt magna
-                                        dolores aliquyam dolores dolore. Amet
-                                        erat amet et magna
-                                    </p>
+                                    <div class="container">
+                                        <div class="row g-5">
+                                            <div
+                                                class="col-md-6 text-center text-md-start"
+                                            >
+                                                <p class="mb-md-0">
+                                                    &copy;
+                                                    <a
+                                                        class="text-white"
+                                                        href="#"
+                                                        >Your Site Name</a
+                                                    >. All Rights Reserved.
+                                                </p>
+                                            </div>
+                                            <div
+                                                class="col-md-6 text-center text-md-end"
+                                            >
+                                                <p class="mb-0">
+                                                    Designed by
+                                                    <a
+                                                        class="text-white"
+                                                        href="https://htmlcodex.com"
+                                                        >HTML Codex</a
+                                                    >
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                                <!-- Footer End -->
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- About End -->
-
-        <!-- Footer Start -->
-        <div class="container-fluid bg-dark text-white-50 py-4">
-            <div class="“container”">
-                © Your Site Name. All Rights Reserved. Designed by HTML Codex
-            </div>
-        </div>
     </div>
 </template>
-
 <script>
 export default {
     name: "Home",
